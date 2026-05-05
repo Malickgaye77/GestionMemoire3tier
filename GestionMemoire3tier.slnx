@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="FrontMemoire3tier/FrontMemoire3tier.csproj" Id="b1d5f27b-3a73-4554-bed3-9364f5e8c9cd">
+    <BuildDependency Project="MetierMemoire/MetierMemoire.csproj" />
+  </Project>
+  <Project Path="MetierMemoire/MetierMemoire.csproj" Id="32ec3c8a-b92b-4343-9cb8-006a779e3b12" />
+</Solution>
