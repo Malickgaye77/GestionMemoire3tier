@@ -21,6 +21,18 @@ namespace MetierMemoire
            return service.AddMemoire(memo);
         }
 
+        public bool DeleteMemoire(Memoire memo)
+        {
+            MemoireService service = new MemoireService();
+            return service.DeleteMemoire(memo);
+        }
+
+        public bool EditMemoire(Memoire memoire)
+        {
+            MemoireService service = new MemoireService();
+            return service.EditMemoire(memoire);
+        }
+
         public List<Memoire> GetAllMemoire()
         {
             MemoireService service = new MemoireService();
@@ -45,16 +57,18 @@ namespace MetierMemoire
             return composite;
         }
 
+        public List<Memoire> GetMemoireList(MemoireModel memo)
+        {
+            MemoireService service = new MemoireService();
+            return service.GetMemoireList(memo);
+        }
+
         public Memoire GetMemoire(int? id)
         {
             MemoireService service = new MemoireService();
             return service.GetMemoire(id);
         }
 
-        public bool SupprimerMemoire(int id)
-        {
-            MemoireService service = new MemoireService();
-             return service.SupprimerMemoire(id);
-        }
+       
     }
 }

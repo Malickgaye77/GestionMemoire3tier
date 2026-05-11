@@ -46,7 +46,41 @@ namespace FrontMemoire3tier.View.Parametre
 
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
+            int id = int.Parse(dgMemoire.CurrentRow.Cells[2].Value.ToString());
+            ServiceMemoire.Memoire memoire = new ServiceMemoire.Memoire();
+            memoire.IdMemoire = id; memoire.AnneeMemoire = int.Parse(txtAnnee.Text);
+            memoire.SujetMemoire = txtSujet.Text;
+            memoire.DescriptionMemoire = txtDescription.Text;
+            service.DeleteMemoire(memoire);
+            Effacer();
+        }
 
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            int id = int.Parse(dgMemoire.CurrentRow.Cells[2].Value.ToString());
+            ServiceMemoire.Memoire memoire = new ServiceMemoire.Memoire();
+            memoire.IdMemoire = id;
+            memoire.AnneeMemoire = int.Parse(txtAnnee.Text);
+            memoire.SujetMemoire = txtSujet.Text;
+            memoire.DescriptionMemoire = txtDescription.Text;
+            service.EditMemoire(memoire);
+            Effacer();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            ServiceMemoire.MemoireModel memoire = new ServiceMemoire.MemoireModel();
+            memoire.AnneeMemoire = int.Parse(txtAnnee.Text);
+            memoire.SujetMemoire = txtSujet.Text;
+            service.GetMemoireList(memoire);
+            Effacer();
+        }
+
+        private void btnSelect_Click(object sender, EventArgs e)
+        {
+            txtAnnee.Text = dgMemoire.CurrentRow.Cells[0].Value.ToString();
+            txtDescription.Text = dgMemoire.CurrentRow.Cells[1].Value.ToString();
+            txtSujet.Text = dgMemoire.CurrentRow.Cells[3].Value.ToString();
         }
     }
 }
